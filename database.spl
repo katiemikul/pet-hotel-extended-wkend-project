@@ -1,0 +1,33 @@
+CREATE TABLE "pets"(
+	"id" SERIAL PRIMARY KEY,
+	"owner_name" VARCHAR(120) NOT NULL,
+	"pet_name" VARCHAR(120) NOT NULL,
+	"breed" VARCHAR(120) NOT NULL,
+	"color" VARCHAR(120) NOT NULL
+);
+
+INSERT INTO "pets" ("owner_name", "pet_name", "breed", "color")
+VALUES ('Kara Larson', 'Stella', 'Dog', 'brown'),
+('April Mikul', 'Spike', 'Dog', 'white'),
+('Krista Heding', 'Angel', 'Dog', 'white'),
+('Dennis Landon', 'Joudsa', 'Dog', 'black and white'),
+('Kara Larson', 'Tramp', 'Dog', 'brown'),
+('Robert Bennett', 'Duke', 'Dog', 'black and white'),
+('Beth Olson', 'Jemma', 'Cat', 'tabby'),
+('Katie Mikul', 'Gus', 'Dog', 'mix'); 
+
+CREATE TABLE "owners"(
+	"id" SERIAL PRIMARY KEY,
+	"owner_name" VARCHAR(120) NOT NULL,
+	"number_pets" INT,
+	"phone_#" VARCHAR(20) NOT NULL
+);
+
+INSERT INTO "owners" ("owner_name", "number_pets", "phone_#")
+VALUES ('Kara Larson', 2, '555-123-4567'),
+('April Mikul', 1, '565-789-1234'),
+('Krista Heding', 1, '555-987-6543'),
+('Dennis Landon', 1, '123-456-7890'),
+('Robert Bennett', 1, '555-456-2378'),
+('Beth Olson', 1, '555-981-2763'),
+('Katie Mikul', 1, '555-321-4321'); 
