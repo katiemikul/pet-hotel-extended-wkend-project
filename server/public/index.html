@@ -20,7 +20,7 @@
     <!-- Styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <link href="styles/style.css" rel="stylesheet" type="text/html">
+    <link href="styles/styles.css" rel="stylesheet">
     <!-- Controllers -->
 
     <!-- Views -->
@@ -30,21 +30,21 @@
 <h1>Katie's Pet Hotel</h1>
 
 <body ng-app="PetApp">
-    <form ng-controller="HomeController as vm">
-
-        {{vm.message}}
-
         <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#!/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#!/dashboard">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#!/owners">Manage Owners</a>
-            </li>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#!/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/owners">Manage Owners</a>
+                </li>
+            </ul>
+    <form ng-controller="HomeController as vm">
+<br>
+<br>
+        {{vm.message}}
 
     </form>
     <ng-view></ng-view>
