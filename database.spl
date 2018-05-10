@@ -31,3 +31,6 @@ VALUES ('Kara Larson', 2, '555-123-4567'),
 ('Robert Bennett', 1, '555-456-2378'),
 ('Beth Olson', 1, '555-981-2763'),
 ('Katie Mikul', 1, '555-321-4321'); 
+
+ALTER TABLE "owners" 
+DROP COLUMN "number_pets";
