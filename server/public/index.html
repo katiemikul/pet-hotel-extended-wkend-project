@@ -9,12 +9,6 @@
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
 
-    <!-- Angular Material -->
-    <!-- <link rel="stylesheet" href="vendors/angular-material.min.css">
-    <script src="vendors/angular-animate.js"></script>
-    <script src="vendors/angular-aria.js"></script>
-    <script src="vendors/angular-messages.js"></script> -->
-
     <!-- Client Side -->
     <script src="scripts/client.js"></script>
     <!-- Styling -->
@@ -22,29 +16,38 @@
         crossorigin="anonymous">
     <link href="styles/styles.css" rel="stylesheet">
     <!-- Controllers -->
+    <script src="scripts/controllers/dashboard.controller.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/owners.controller.js"></script>
+
+    <!-- Services -->
+    <script src="scripts/services/dashboard.service.js"></script>
+    <script src="scripts/services/home.service.js"></script>
+    <script src="scripts/services/owners.service.js"></script>
 
     <!-- Views -->
-
+    <script src="views/dashboard.html"></script>
+    <script src="views/home.html"></script>
+    <script src="views/owners.html"></script>
     <title>Katie's Pet Hotel</title>
 </head>
 <h1>Katie's Pet Hotel</h1>
 
 <body ng-app="PetApp">
-        <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#!/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#!/dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#!/owners">Manage Owners</a>
-                </li>
-            </ul>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#!/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#!/owners">Manage Owners</a>
+        </li>
+    </ul>
     <form ng-controller="HomeController as vm">
-<br>
-<br>
-        {{vm.message}}
+        <br>
+        <br> {{vm.message}}
 
     </form>
     <ng-view></ng-view>
