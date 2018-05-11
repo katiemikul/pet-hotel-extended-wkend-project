@@ -3,7 +3,8 @@ const pool = require('../modules/pool');
 
 //GET request for pets table on database
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "pets"`)
+    pool.query(`SELECT "owner_name", "pet_name", "breed", "color", "check_in", "phone_num"FROM "owners"
+    FULL OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id";`)
     .then((results) => {
         res.send(results.rows)
         console.log(results)

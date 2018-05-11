@@ -1,0 +1,43 @@
+<div>
+    {{vm.message}}
+</div>
+
+<form>
+    <h2>Add Pet</h2>
+    <div class="form-group">
+            <input ng-model="vm.newPet.owner_name" type="text" class="form-control" placeholder="Pet Name">
+            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Breed">
+            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Color">
+            <select ng-model="vm.newOwner" class="form-control">
+                <option ng-value=""
+            </select>
+            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Checked In">
+        <button ng-click="vm.addOwners()" type="submit" class="btn btn-primary">Submit New Owner</button>
+</form>
+<br>
+<h2>History</h2>
+<table>
+        <thead>
+            <tr>
+                <td>Owner Name</td>
+                <td>Pet Name</td>
+                <td>Breed</td>
+                <td>Color</td>
+                <td>Check In/Out</td>
+                <td>Phone Number</td>
+        
+            </tr>
+        </thead>
+        <tbody ng-repeat="pet in vm.pet.details">
+            <tr>
+                <td>{{pet.owner_name}}</td>
+                <td>{{pet.pet_name}}</td>
+                <td>{{pet.breed}}</td>
+                <td>{{pet.color}}</td>
+                <td>{{pet.check_in}}</td>
+                <td>{{pet.phone_num}}</td>
+            </tr>
+        
+        </tbody>
+        
+        </table>

@@ -34,3 +34,33 @@ VALUES ('Kara Larson', 2, '555-123-4567'),
 
 ALTER TABLE "owners" 
 DROP COLUMN "number_pets";
+
+DROP TABLE "pets";
+
+CREATE TABLE "pets"(
+	"id" SERIAL PRIMARY KEY,
+	"owner_name" VARCHAR(120) NOT NULL,
+	"pet_name" VARCHAR(120) NOT NULL,
+	"breed" VARCHAR(120) NOT NULL,
+	"color" VARCHAR(120) NOT NULL,
+	"check_in" VARCHAR(20) NOT NULL
+);
+
+INSERT INTO "pets" ("owner_name", "pet_name", "breed", "color", "check_in")
+VALUES ('Kara Larson', 'Stella', 'Dog', 'brown', 'no'),
+('April Mikul', 'Spike', 'Dog', 'white', 'no'),
+('Krista Heding', 'Angel', 'Dog', 'white', 'no'),
+('Dennis Landon', 'Joudsa', 'Dog', 'black and white', 'no'),
+('Kara Larson', 'Tramp', 'Dog', 'brown', 'no'),
+('Robert Bennett', 'Duke', 'Dog', 'black and white', 'no'),
+('Beth Olson', 'Jemma', 'Cat', 'tabby', 'no'),
+('Katie Mikul', 'Gus', 'Dog', 'mix', 'no');
+
+ALTER TABLE "public"."pets" DROP COLUMN "owner_name";
+
+ALTER TABLE "public"."pets"
+  ADD COLUMN "owner_id" integer,
+  ADD CONSTRAINT "owners.id" FOREIGN KEY ("zebra") REFERENCES "public"."owners"("id");
+
+SELECT "owner_name", "pet_name", "breed", "color", "check_in", "phone_num"FROM "owners"
+FULL OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id";
