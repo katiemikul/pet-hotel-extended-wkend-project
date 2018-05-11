@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     const pet = req.body;
-    pool.query(`INSERT INTO "pets" ("owner_name", "pet_name", "breed", "color")
-    VALUES ($1, $2, $3, $4);`, [pet.owner_name, pet.pet_name, pet.breed, pet.color])
+    pool.query(`INSERT INTO "pets" ("pet_name", "breed", "color", "check_in", "owner_id")
+    VALUES ($1, $2, $3, $4, $5);`, [pet.pet_name, pet.breed, pet.color, pet.check_in, pet.owner_id])
     .then((results) => {
         res.sendStatus(200);
     })

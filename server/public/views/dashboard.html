@@ -5,39 +5,43 @@
 <form>
     <h2>Add Pet</h2>
     <div class="form-group">
-            <input ng-model="vm.newPet.pet_name" type="text" class="form-control" placeholder="Pet Name">
-            <input ng-model="vm.newPet.breed" type="text" class="form-control" placeholder="Breed">
-            <input ng-model="vm.newPet.color" type="text" class="form-control" placeholder="Color">
-            <select ng-model="vm.displayOwnersDB.owner_name" class="form-control">
-                <option ng-repeat="owner in vm.owner.details" ng-value="owner_name">{{owner.owner_name}}</option>
+        <input ng-model="vm.newPet.pet_name" type="text" class="form-control" placeholder="Pet Name">
+        <input ng-model="vm.newPet.breed" type="text" class="form-control" placeholder="Breed">
+        <input ng-model="vm.newPet.color" type="text" class="form-control" placeholder="Color">
+        <select ng-model="vm.newPet.owner_id" class="form-control">
+            <option ng-repeat="owner in vm.owner.details" ng-value="owner.id">{{owner.owner_name}}</option>
+        </select>
+        <select ng-model="vm.newPet.check_in" class="form-control">
+                <option value="yes" placeholder="Check-In">Yes</option>
+                <option value="no" placeholder="Check-In">No</option>
             </select>
-            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Checked In">
+        
         <button ng-click="vm.addPets()" type="submit" class="btn btn-primary">Submit New Pet</button>
 </form>
 <br>
 <h2>History</h2>
 <table>
-        <thead>
-            <tr>
-                <td>Owner Name</td>
-                <td>Pet Name</td>
-                <td>Breed</td>
-                <td>Color</td>
-                <td>Check In/Out</td>
-                <td>Phone Number</td>
-        
-            </tr>
-        </thead>
-        <tbody ng-repeat="pet in vm.pet.details">
-            <tr>
-                <td>{{pet.owner_name}}</td>
-                <td>{{pet.pet_name}}</td>
-                <td>{{pet.breed}}</td>
-                <td>{{pet.color}}</td>
-                <td>{{pet.check_in}}</td>
-                <td>{{pet.phone_num}}</td>
-            </tr>
-        
-        </tbody>
-        
-        </table>
+    <thead>
+        <tr>
+            <td>Owner Name</td>
+            <td>Pet Name</td>
+            <td>Breed</td>
+            <td>Color</td>
+            <td>Check In/Out</td>
+            <td>Phone Number</td>
+
+        </tr>
+    </thead>
+    <tbody ng-repeat="pet in vm.pet.details">
+        <tr>
+            <td>{{pet.owner_name}}</td>
+            <td>{{pet.pet_name}}</td>
+            <td>{{pet.breed}}</td>
+            <td>{{pet.color}}</td>
+            <td>{{pet.check_in}}</td>
+            <td>{{pet.phone_num}}</td>
+        </tr>
+
+    </tbody>
+
+</table>
