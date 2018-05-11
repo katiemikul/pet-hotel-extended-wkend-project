@@ -4,6 +4,8 @@ app.controller('DashboardController', ['$http', function($http) {
     
     self.pet={details: []};
 
+    self.owner={details: []};
+
     self.newPet={};
 
     self.displayPets = function(){
@@ -38,5 +40,21 @@ app.controller('DashboardController', ['$http', function($http) {
             console.log('error on /dashboard Post', error);
         });
     }
+
+    self.displayOwnersDB = function(){
+        console.log('display owners for dashboard');
+        $http({
+            method: 'GET',
+            url: '/owners',
+        })
+        .then(function (response) {
+            console.log('display all owners', response);
+            self.owner.details = response.data;
+        })
+        .catch(function (error) {
+            console.log('error on /owners GET to dashboard', error);
+        });
+    }
+    self.displayOwnersDB();
 
 }])

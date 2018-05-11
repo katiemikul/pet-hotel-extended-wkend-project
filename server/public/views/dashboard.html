@@ -5,14 +5,14 @@
 <form>
     <h2>Add Pet</h2>
     <div class="form-group">
-            <input ng-model="vm.newPet.owner_name" type="text" class="form-control" placeholder="Pet Name">
-            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Breed">
-            <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Color">
-            <select ng-model="vm.newOwner" class="form-control">
-                <option ng-value=""
+            <input ng-model="vm.newPet.pet_name" type="text" class="form-control" placeholder="Pet Name">
+            <input ng-model="vm.newPet.breed" type="text" class="form-control" placeholder="Breed">
+            <input ng-model="vm.newPet.color" type="text" class="form-control" placeholder="Color">
+            <select ng-model="vm.displayOwnersDB.owner_name" class="form-control">
+                <option ng-repeat="owner in vm.owner.details" ng-value="owner_name">{{owner.owner_name}}</option>
             </select>
             <input ng-model="vm.newOwner.owner_name" type="text" class="form-control" placeholder="Checked In">
-        <button ng-click="vm.addOwners()" type="submit" class="btn btn-primary">Submit New Owner</button>
+        <button ng-click="vm.addPets()" type="submit" class="btn btn-primary">Submit New Pet</button>
 </form>
 <br>
 <h2>History</h2>
