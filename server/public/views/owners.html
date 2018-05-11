@@ -8,16 +8,14 @@
         </div>
         <div class="form-group">
             <label>Phone Number</label>
-            <input type="text" class="form-control" placeholder="Phone Number">
-            <small class="form-text text-muted">((XXX)XXX-XXXX).</small>
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <input type="text" class="form-control" placeholder="(XXX)XXX-XXXX)">
+            <small class="form-text text-muted">Phone Number</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit New Owner</button>
     </form>
 </div>
+<br>
+<br>
 <table>
 <thead>
     <tr>
@@ -26,10 +24,10 @@
 
     </tr>
 </thead>
-<tbody>
+<tbody ng-repeat="owners in vm.owner.details">
     <tr>
-        <td></td>
-        <td></td>
+        <td>{{owners.owner_name}}</td>
+        <td>{{owners.phone_num}}</td>
     </tr>
 
 </tbody>
