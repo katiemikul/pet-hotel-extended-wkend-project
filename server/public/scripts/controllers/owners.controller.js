@@ -4,6 +4,8 @@ app.controller('OwnersController', ['$http', function($http) {
 
     self.owner={details: []};
 
+    self.newOwner={};
+
     self.displayOwners = function(){
         console.log('display owners');
         $http({
@@ -19,5 +21,22 @@ app.controller('OwnersController', ['$http', function($http) {
         });
     }
     self.displayOwners();
+
+    self.addOwners = function(){
+        console.log('adding owners');
+        $http({
+            method: 'POST',
+            url: '/owners',
+            data: self.newOwner,
+        })
+        .then(function (response) {
+            console.log('added a new owner', response);
+            self.newOwner = response.data.results;
+            self.displayOwners();
+        })
+        .catch(function (error) {
+            console.log('error on /owners Post', error);
+        });
+    }
 
 }])
