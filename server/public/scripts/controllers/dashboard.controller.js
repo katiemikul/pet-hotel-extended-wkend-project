@@ -8,6 +8,16 @@ app.controller('DashboardController', ['$http', function($http) {
 
     self.newPet={};
 
+    self.resetNewPet = function() {
+        self.newTPet = {
+            pet_name: '',
+            breed: '',
+            color: '',
+            check_in: 'Yes',
+        };
+    }
+    self.resetNewPet();
+
     self.displayPets = function(){
         console.log('display pets');
         $http({
@@ -35,6 +45,7 @@ app.controller('DashboardController', ['$http', function($http) {
             console.log('added a new pet', response);
             self.newPet = response.data.results;
             self.displayPets();
+            self.resetNewPet();
         })
         .catch(function (error) {
             console.log('error on /dashboard Post', error);
@@ -56,5 +67,29 @@ app.controller('DashboardController', ['$http', function($http) {
         });
     }
     self.displayOwnersDB();
+
+    self.deletePet = function (petToDelete) {
+        console.log('the pet to delete,', petToDelete);
+        
+        if(confirm("Are you sure you want to delete this pet?")) {
+            // request to server to delete this pet
+            $http({
+                method: 'DELETE',
+                url: `/dashboard/${petToDelete.id}`
+            })
+                .then(function (response) {
+                    console.log('successful delete');
+                    self.displayPets();
+                    self.displayOwnersDB();
+                })
+                .catch(function (error) {
+                    console.log('error on delete to /dashboard');
+                });
+        } else {
+            console.log('do NOT delete');
+
+        }
+        
+    }
 
 }])

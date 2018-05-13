@@ -13,6 +13,20 @@ router.get('/', (req, res) => {
     });
 })
 
+//GET request for number of pets per owner from database
+router.get('/', (req, res) => {
+    pool.query(`SELECT "owner_name", COUNT(*) FROM "pets"
+    JOIN "owners" ON "owners"."id" = "owner_id"
+    GROUP BY "owner_name";`)
+    .then((results) => {
+        res.send(results.rows)
+        console.log(results)
+    })
+    .catch((error) => {
+        console.log('error with GET to /owners', error);
+    });
+})
+
 //POST request from owner.html/client.js and posts to database
 router.post('/', (req, res) => {
     console.log(req.body);

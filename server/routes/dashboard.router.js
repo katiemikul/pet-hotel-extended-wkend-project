@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 
 //GET request for pets table on database
 router.get('/', (req, res) => {
-    pool.query(`SELECT "owner_name", "pet_name", "breed", "color", "check_in", "phone_num"FROM "owners"
+    pool.query(`SELECT "owner_name", "pets"."id", "pet_name", "breed", "color", "check_in", "phone_num" FROM "owners"
     FULL OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id";`)
     .then((results) => {
         res.send(results.rows)
@@ -27,5 +27,18 @@ router.post('/', (req, res) => {
         console.log('error with POST /dashboard', error);
     });
 })
+
+// DELETE pets
+router.delete('/:id', (req, res) => {
+    console.log(req.params); 
+    const pets_id = req.params.id;
+    pool.query('DELETE FROM "pets" WHERE "id" = $1;', [pets_id])
+    .then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('Error making query', error);
+        res.sendStatus(500);
+    });
+});
 
 module.exports=router;

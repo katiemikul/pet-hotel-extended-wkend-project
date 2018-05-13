@@ -5,13 +5,13 @@
 <form>
     <h2>Add Pet</h2>
     <div class="form-group">
-        <input ng-model="vm.newPet.pet_name" type="text" class="form-control" placeholder="Pet Name">
-        <input ng-model="vm.newPet.breed" type="text" class="form-control" placeholder="Breed">
-        <input ng-model="vm.newPet.color" type="text" class="form-control" placeholder="Color">
-        <select ng-model="vm.newPet.owner_id" class="form-control">
+        <input ng-model="vm.newPet.pet_name" type="text" placeholder="Pet Name">
+        <input ng-model="vm.newPet.breed" type="text" placeholder="Breed">
+        <input ng-model="vm.newPet.color" type="text" placeholder="Color">
+        <select ng-model="vm.newPet.owner_id">
             <option ng-repeat="owner in vm.owner.details" ng-value="owner.id">{{owner.owner_name}}</option>
         </select>
-        <select ng-model="vm.newPet.check_in" class="form-control">
+        <select ng-model="vm.newPet.check_in">
                 <option value="yes" placeholder="Check-In">Yes</option>
                 <option value="no" placeholder="Check-In">No</option>
             </select>
@@ -40,6 +40,7 @@
             <td>{{pet.color}}</td>
             <td>{{pet.check_in}}</td>
             <td>{{pet.phone_num}}</td>
+            <td><button class="btn btn-danger" ng-click="vm.deletePet(pet)">Delete Pet</button></td>
         </tr>
 
     </tbody>

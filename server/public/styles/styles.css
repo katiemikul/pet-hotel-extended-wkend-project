@@ -1,3 +1,22 @@
 body{
-background-color: lightseagreen;
+background-color: tan;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: 20;
+}
+
+.carousel .item {
+    width: 100%;
+    height: 500px;
+    background-color: lavender;
+    interval: 2000;
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+.title{
+    font: italic;
 }
