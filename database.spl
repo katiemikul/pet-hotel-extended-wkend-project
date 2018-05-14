@@ -3,18 +3,19 @@ CREATE TABLE "pets"(
 	"owner_name" VARCHAR(120) NOT NULL,
 	"pet_name" VARCHAR(120) NOT NULL,
 	"breed" VARCHAR(120) NOT NULL,
-	"color" VARCHAR(120) NOT NULL
+	"color" VARCHAR(120) NOT NULL,
+	"check_in" VARCHAR(20) NOT NULL
 );
 
-INSERT INTO "pets" ("owner_name", "pet_name", "breed", "color")
-VALUES ('Kara Larson', 'Stella', 'Dog', 'brown'),
-('April Mikul', 'Spike', 'Dog', 'white'),
-('Krista Heding', 'Angel', 'Dog', 'white'),
-('Dennis Landon', 'Joudsa', 'Dog', 'black and white'),
-('Kara Larson', 'Tramp', 'Dog', 'brown'),
-('Robert Bennett', 'Duke', 'Dog', 'black and white'),
-('Beth Olson', 'Jemma', 'Cat', 'tabby'),
-('Katie Mikul', 'Gus', 'Dog', 'mix'); 
+INSERT INTO "pets" ("owner_name", "pet_name", "breed", "color", "check_in")
+VALUES ('Kara Larson', 'Stella', 'Dog', 'brown', 'no'),
+('April Mikul', 'Spike', 'Dog', 'white', 'no'),
+('Krista Heding', 'Angel', 'Dog', 'white', 'no'),
+('Dennis Landon', 'Joudsa', 'Dog', 'black and white', 'no'),
+('Kara Larson', 'Tramp', 'Dog', 'brown', 'no'),
+('Robert Bennett', 'Duke', 'Dog', 'black and white', 'no'),
+('Beth Olson', 'Jemma', 'Cat', 'tabby', 'no'),
+('Katie Mikul', 'Gus', 'Dog', 'mix', 'no'); 
 
 CREATE TABLE "owners"(
 	"id" SERIAL PRIMARY KEY,
@@ -23,14 +24,14 @@ CREATE TABLE "owners"(
 	"phone_#" VARCHAR(20) NOT NULL
 );
 
-INSERT INTO "owners" ("owner_name", "number_pets", "phone_#")
-VALUES ('Kara Larson', 2, '555-123-4567'),
-('April Mikul', 1, '565-789-1234'),
-('Krista Heding', 1, '555-987-6543'),
-('Dennis Landon', 1, '123-456-7890'),
-('Robert Bennett', 1, '555-456-2378'),
-('Beth Olson', 1, '555-981-2763'),
-('Katie Mikul', 1, '555-321-4321'); 
+INSERT INTO "owners" ("owner_name", "number_pets", "phone_#", "check_in")
+VALUES ('Kara Larson', 2, '555-123-4567', 'no'),
+('April Mikul', 1, '565-789-1234', 'no'),
+('Krista Heding', 1, '555-987-6543', 'no'),
+('Dennis Landon', 1, '123-456-7890', 'no'),
+('Robert Bennett', 1, '555-456-2378', 'no'),
+('Beth Olson', 1, '555-981-2763', 'no'),
+('Katie Mikul', 1, '555-321-4321', 'no'); 
 
 ALTER TABLE "owners" 
 DROP COLUMN "number_pets";
@@ -56,6 +57,9 @@ VALUES ('Kara Larson', 'Stella', 'Dog', 'brown', 'no'),
 ('Beth Olson', 'Jemma', 'Cat', 'tabby', 'no'),
 ('Katie Mikul', 'Gus', 'Dog', 'mix', 'no');
 
+SELECT "pet_name", "breed", "color", "check_in", "phone_num" FROM "pets"
+LEFT OUTER JOIN "owners" ON "pets"."owner_name" = "owners"."owner_name";
+
 ALTER TABLE "public"."pets" DROP COLUMN "owner_name";
 
 ALTER TABLE "public"."pets"
@@ -64,3 +68,11 @@ ALTER TABLE "public"."pets"
 
 SELECT "owner_name", "pet_name", "breed", "color", "check_in", "phone_num"FROM "owners"
 FULL OUTER JOIN "pets" ON "owners"."id" = "pets"."owner_id";
+
+SELECT "owner_name", COUNT(*) FROM "owners"
+JOIN "pets" ON "pets"."owner_id" = "owner_id"
+GROUP BY "owner_name";
+
+SELECT "owner_name", COUNT(*) FROM "pets"
+JOIN "owners" ON "owners"."id" = "owner_id"
+GROUP BY "owner_name";
