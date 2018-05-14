@@ -13,7 +13,7 @@ app.controller('DashboardController', ['$http', function($http) {
             pet_name: '',
             breed: '',
             color: '',
-            check_in: 'Yes',
+            check_in: 'yes',
         };
     }
     self.resetNewPet();
