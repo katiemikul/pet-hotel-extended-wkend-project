@@ -1,17 +1,18 @@
 body{
-background-color: lemonchiffon;
+background-color: ivory;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 font-size: 18px;
+align-content: center;
 }
 
 .carousel .item {
-    width: 100%;
+    width: 75%;
     height: 500px;
     background-color: lavender;
     interval: 2000;
 }
 .carousel-inner > .item > img {
-    position: absolute;
+    position: center;
     top: 0;
     left: 0;
     min-width: 100%;
@@ -19,4 +20,8 @@ font-size: 18px;
 }
 .title{
     font: italic;
+}
+
+h1{
+    align-content: center;
 }

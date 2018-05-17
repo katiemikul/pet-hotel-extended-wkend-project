@@ -25,11 +25,11 @@
 
     </tr>
 </thead>
-<tbody ng-repeat="owners in vm.owner.details" ng-repeat="pets in vm.pet.details">
+<tbody ng-repeat="owners in vm.owner.details" ng-repeat="number in vm.petCount.details">
     <tr>
         <td>{{owners.owner_name}}</td>
         <td>{{owners.phone_num}}</td>
-        <td>{{pets.count}}</td>
+        <td>{{number.count}}</td>
     </tr>
 
 </tbody>
